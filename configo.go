@@ -21,7 +21,7 @@ func New(configPtr interface{}) (*Loader, error) {
 
 	c := &Loader{
 		configFile: "",
-		configType: FILE_TYPE_NONE,
+		configType: FileTypeNone,
 		confPtr:    configPtr,
 	}
 
