@@ -17,10 +17,14 @@ import (
 )
 
 const (
-	FILE_TYPE_NONE = iota
-	FILE_TYPE_TOML
-	FILE_TYPE_JSON
-	FILE_TYPE_YAML
+	// FileTypeNone : not set
+	FileTypeNone = iota
+	// FileTypeTOML : toml conf cfg
+	FileTypeTOML
+	// FileTypeJSON : json
+	FileTypeJSON
+	// FileTypeYAML : yaml
+	FileTypeYAML
 )
 
 // ConfigType config file type
@@ -44,13 +48,13 @@ func (c *Loader) LoadFromFile(f string) error {
 	c.SetFile(f)
 
 	switch c.configType {
-	case FILE_TYPE_NONE:
+	case FileTypeNone:
 		fallthrough
-	case FILE_TYPE_TOML:
+	case FileTypeTOML:
 		err = c.LoadFromTomlFile(f)
-	case FILE_TYPE_JSON:
+	case FileTypeJSON:
 		err = c.LoadFromJSONFile(f)
-	case FILE_TYPE_YAML:
+	case FileTypeYAML:
 		err = c.LoadFromYamlFile(f)
 	default:
 		err = errors.New("unsupported config type")
@@ -126,17 +130,17 @@ func (c *Loader) SetFile(f string) error {
 
 	switch strings.ToLower((path.Ext(c.configFile))) {
 	case ".json":
-		cType = FILE_TYPE_JSON
+		cType = FileTypeJSON
 	case ".conf":
 		fallthrough
 	case ".cfg":
 		fallthrough
 	case ".toml":
-		cType = FILE_TYPE_TOML
+		cType = FileTypeTOML
 	case ".yaml":
-		cType = FILE_TYPE_YAML
+		cType = FileTypeYAML
 	default:
-		cType = FILE_TYPE_NONE
+		cType = FileTypeNone
 	}
 	c.configType = cType
 
