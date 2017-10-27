@@ -137,6 +137,8 @@ func (c *Loader) SetFile(f string) error {
 		fallthrough
 	case ".toml":
 		cType = FileTypeTOML
+	case ".yml":
+		fallthrough
 	case ".yaml":
 		cType = FileTypeYAML
 	default:
