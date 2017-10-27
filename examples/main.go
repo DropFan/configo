@@ -7,6 +7,7 @@ import (
 	"github.com/DropFan/configo"
 )
 
+// DemoConfig demo config struct
 type DemoConfig struct {
 	DemoName string     `toml:"name" json:"name"`
 	RunMode  string     `toml:"mode" json:"mode" yaml:"mode"`
@@ -15,6 +16,7 @@ type DemoConfig struct {
 	Mysql    MysqlConf
 }
 
+// ServerConf demo server config
 type ServerConf struct {
 	Type string `toml:"type" json:"type"` // "thrift" or "http"
 	Host string `toml:"host" json:"host"`
@@ -22,11 +24,13 @@ type ServerConf struct {
 	Addr string `toml:"addr" json:"addr"` // "host:port"
 }
 
+// RedisConf demo redis config
 type RedisConf struct {
 	Host string `toml:"host" json:"host"`
 	Port int    `toml:"port" json:"port"`
 }
 
+// MysqlConf demo mysql config
 type MysqlConf struct {
 	Host   string
 	Port   int
