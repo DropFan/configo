@@ -1,0 +1,12 @@
+language: go
+go:
+  - 1.x
+  - 1.5
+  - 1.6
+  - 1.7
+  - 1.8
+  - 1.9
+  - tip
+before_install:
+  - go get github.com/BurntSushi/toml
+  - go get gopkg.in/yaml.v2
