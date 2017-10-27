@@ -8,6 +8,12 @@ import (
 	"reflect"
 )
 
+// ParseFile : parse file to config struct
+func ParseFile(file string, configPtr interface{}) error {
+	_, err := NewFromFile(file, configPtr)
+	return err
+}
+
 // New : Get an instance of config loader. `configPtr` must be a pointer to config struct
 func New(configPtr interface{}) (*Loader, error) {
 
