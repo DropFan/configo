@@ -4,17 +4,19 @@
 package configo
 
 import (
-	"encoding/json"
+	// "encoding/json"
 	"errors"
 	"io/ioutil"
 	"os"
 	"path"
 	"strings"
 
-	yaml "gopkg.in/yaml.v2"
-
 	"github.com/BurntSushi/toml"
+	jsoniter "github.com/json-iterator/go"
+	yaml "gopkg.in/yaml.v2"
 )
+
+var json = jsoniter.ConfigCompatibleWithStandardLibrary
 
 const (
 	// FileTypeNone : not set
