@@ -8,7 +8,7 @@ import (
 	"reflect"
 )
 
-// ParseFile : parse file to config struct
+// ParseFile : parse file to config struct `configPtr` must be a pointer to config struct
 func ParseFile(file string, configPtr interface{}) error {
 	_, err := NewFromFile(file, configPtr)
 	return err
